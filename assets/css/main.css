@@ -1,5 +1,6 @@
 .app {
     overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header {
@@ -43,7 +44,6 @@
 .header__nav-list {
     display: flex;
     list-style: none;
-    margin: auto;
 }
 
 
@@ -56,6 +56,14 @@
     margin: 0 32px;
     font-weight: 390;
     position: relative;
+}
+
+.header__wrap-menu-mobile {
+    margin: auto;
+}
+
+.header__wrap-menu-img {
+    display: none;
 }
 
 .header__nav-item-link:hover.header__nav-item-link::before {
@@ -100,6 +108,7 @@
     font-size: 2.4rem;
     padding: 10px;
     display: none;
+
 }
 
 .modal {
@@ -111,7 +120,19 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
     opacity: 0;
-    display: none;
+    transition: all 0.3s linear;
+    visibility: hidden;
+}
+
+#check-menu-mobile:checked~.modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+#check-menu-mobile:checked~.header__wrap-menu-mobile {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
 }
 
 .header__cart::before {
@@ -135,17 +156,6 @@
 
 #check-menu-mobile {
     display: none;
-}
-
-#check-menu-mobile:checked~.modal {
-    display: block;
-    opacity: 1;
-}
-
-#check-menu-mobile:checked~.header__nav-list {
-    transform: translateX(0);
-    opacity: 1;
-    transition: all 0.6s linear;
 }
 
 .silder {
