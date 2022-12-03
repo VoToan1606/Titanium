@@ -475,4 +475,8 @@
         text-align: left;
     }
 
+    .footer__meta-img {
+        width: 15%;
+    }
+
 }
